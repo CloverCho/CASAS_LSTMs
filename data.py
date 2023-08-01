@@ -309,7 +309,7 @@ if __name__ == '__main__':
 
 
 def getData(datasetName):
-    X = np.load('./npy/' + datasetName + '-x.npy')
-    Y = np.load('./npy/' + datasetName + '-y.npy')
-    dictActivities = np.load('./npy/' + datasetName + '-labels.npy').item()
+    X = np.load('./npy/' + datasetName + '-x.npy', allow_pickle=True)
+    Y = np.load('./npy/' + datasetName + '-y.npy', allow_pickle=True)
+    dictActivities = np.load('./npy/' + datasetName + '-labels.npy', allow_pickle=True).item()
     return X, Y, dictActivities
