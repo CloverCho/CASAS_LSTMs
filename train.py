@@ -80,8 +80,11 @@ if __name__ == '__main__':
 
             # train the model
             print('Begin training ...')
-            class_weight = compute_class_weight('balanced', np.unique(Y),
-                                                Y)  # use as optional argument in the fit function
+            class_weight = compute_class_weight(
+                class_weight='balanced',
+                classes=np.unique(Y),
+                y=Y
+            )  # use as optional argument in the fit function
 
             model.fit(X_train_input, Y[train], validation_split=0.2, epochs=epochs, batch_size=64, verbose=1,
                       callbacks=[csv_logger, model_checkpoint])
