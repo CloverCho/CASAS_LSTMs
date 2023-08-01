@@ -7,7 +7,7 @@ from collections import Counter
 from datetime import datetime
 
 import numpy as np
-from keras.preprocessing import sequence
+from keras_preprocessing import sequence
 
 offset = 20
 max_lenght = 2000
