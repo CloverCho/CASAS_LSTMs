@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-from keras.layers import Dense, LSTM, Bidirectional, Concatenate
-from keras.layers.embeddings import Embedding
+from keras.layers import Dense, LSTM, Bidirectional, Concatenate, Embedding
 from keras.models import Sequential
 
 
