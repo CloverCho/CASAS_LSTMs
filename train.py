@@ -76,7 +76,7 @@ if __name__ == '__main__':
             model_checkpoint = ModelCheckpoint(
                 model.name + '-' + dataset + '-' + str(currenttime) + '.h5',
                 monitor='acc',
-                save_best_only=True)
+                save_weights_only=True)
 
             # train the model
             print('Begin training ...')
@@ -97,11 +97,11 @@ if __name__ == '__main__':
             print('Report:')
             target_names = sorted(dictActivities, key=dictActivities.get)
 
-            classes = model.predict_classes(X_test_input, batch_size=64)
+            classes = model.predict(X_test_input, batch_size=64).argmax(axis=-1)
             print(classification_report(list(Y[test]), classes, target_names=target_names))
             print('Confusion matrix:')
             labels = list(dictActivities.values())
-            print(confusion_matrix(list(Y[test]), classes, labels))
+            print(confusion_matrix(Y[test], classes))
 
             cvaccuracy.append(scores[1] * 100)
             cvscores.append(scores)
